@@ -8,3 +8,6 @@ Thumbs.db
 
 #Logs
 *.log 
+
+# Ignore test runner artifacts
+*.log

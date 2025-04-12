@@ -1,15 +1,129 @@
-body {
-    font-family: Arial, sans-serif;
+/* Box sizing reset */
+* {
+    box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Theme Variables - Light */
+  :root {
+    --bg-color: #f0f0f0;
+    --text-color: #111;
+    --accent-color: #007BFF;
+    --card-bg: #f0f0f0;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --hover-bg: #e9e9e9;
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
     text-align: center;
-    margin: 3rem;
-    background-color: #f4f4f4;
-}
-button {
-    padding: 10px 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin-top: -10px;
+    color: #444;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 2rem;
+    margin: 3rem 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+  
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Button Styles */
+  button {
+    display: block;
+    margin: 2rem auto 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
-}
-#output {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+  
+  /* Output Area */
+  #output {
     margin-top: 1.5rem;
     font-weight: bold;
-}
+    min-height: 2em;
+  }
+  
+  /* Station List */
+  #station-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1em;
+  }
+  
+  #station-list li {
+    background: var(--card-bg);
+    padding: 0.8em;
+    margin-bottom: 0.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--card-shadow);
+    font-family: sans-serif;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  #station-list li:hover {
+    transform: scale(1.02);
+    background-color: var(--hover-bg);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    body {
+      padding: 1rem;
+      margin: 1rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Theme: Dark Mode Overrides */
+  body.dark {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --accent-color: #4acf90;
+    --card-bg: #1e1e1e;
+    --card-shadow: rgba(255, 255, 255, 0.1);
+    --hover-bg: #2a2a2a;
+  }
+  

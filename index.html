@@ -7,9 +7,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>PumpPal: Find the Cheapest Gas Near You</h1>
+  <h1>Welcome to PumpPal!</h1>
+  <h2>Find the Cheapest Gas Near You</h2>
+  <button id="theme-toggle">Toggle Theme</button>
   <button onclick="getLocation()">Find My Location</button>
   <p id="output">Waiting for user input...</p>
+
+  <div id="output"></div>
+
+  <hr>
+
+  <h2>Nearby Gas Stations</h2>
+  <ul id="station-list"></ul>
 
   <script src="app.js"></script>
 </body>

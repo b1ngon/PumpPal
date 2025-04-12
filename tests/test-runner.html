@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PumpPal – Test Runner</title>
+</head>
+<body>
+  <h1>PumpPal Test Suite</h1>
+  <script src="app.js"></script>
+  <script src="tests/geolocation.test.js"></script>
+  <script>
+    // Run all test cases
+    test_user_denied_geolocation();
+    test_successful_geolocation();
+    test_position_unavailable();
+    test_timeout_error();
+    test_station_list_rendering();
+  </script>
+</body>
+</html>
