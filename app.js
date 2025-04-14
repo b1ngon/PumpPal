@@ -40,22 +40,23 @@ function getLocation() {
   }
   
   const mockGasStations = [
-    { name: "Shell", price: 3.45, distance: 1.2 },
-    { name: "Chevron", price: 3.29, distance: 2.5 },
-    { name: "Barry's Gas Station", price: 2.99, distance: 0.3 },
-    { name: "Exxon", price: 3.55, distance: 0.8 },
-    { name: "QT", price: 3.40, distance: 1.5 },
-    { name: "Mobil", price: 3.60, distance: 2.0 },
-    { name: "7-Eleven", price: 3.25, distance: 0.5 },
-    { name: "Circle K", price: 3.50, distance: 1.8 },
-    { name: "Valero", price: 3.30, distance: 2.2 },
-    { name: "Loves", price: 3.70, distance: 1.0 },
-    { name: "Sunoco", price: 3.65, distance: 1.7 },
+    { name: "Shell", prices: { regular: 3.45, midgrade: 3.75, premium: 3.95 }, distance: 1.2 },
+    { name: "Chevron", prices: { regular: 3.29, midgrade: 3.59, premium: 3.79 }, distance: 2.5 },
+    { name: "Barry's Gas Station", prices: { regular: 2.99, midgrade: 3.19, premium: 3.39 }, distance: 0.3 },
+    { name: "Exxon", prices: { regular: 3.55, midgrade: 3.75, premium: 3.95 }, distance: 0.8 },
+    { name: "QT", prices: { regular: 3.40, midgrade: 3.60, premium: 3.80 }, distance: 1.5 },
+    { name: "Mobil", prices: { regular: 3.60, midgrade: 3.80, premium: 4.00 }, distance: 2.0 },
+    { name: "7-Eleven", prices: { regular: 3.25, midgrade: 3.45, premium: 3.65 }, distance: 0.5 },
+    { name: "Circle K", prices: { regular: 3.26, midgrade: 3.46, premium: 3.66 }, distance: 1.8 },
+    { name: "Valero", prices: { regular: 3.30, midgrade: 3.50, premium: 3.70 }, distance: 2.2 },
+    { name: "Costco", prices: { regular: 3.65, midgrade: 3.85, premium: 4.05 }, distance: 1.7 },
   ];
+  
   
   function renderStations(stations) {
     const list = document.getElementById("station-list");
-    list.innerHTML = ""; // Clear previous results
+    const fuelType = document.getElementById("fuel-type").value;
+    list.innerHTML = "";
   
     if (stations.length === 0) {
       list.innerHTML = "<li>No gas stations found.</li>";
@@ -64,10 +65,12 @@ function getLocation() {
   
     stations.forEach((station) => {
       const li = document.createElement("li");
-      li.textContent = `${station.name}: $${station.price.toFixed(2)} (${station.distance} miles away)`;
+      const price = station.prices[fuelType];
+      li.textContent = `${station.name}: $${price.toFixed(2)} (${station.distance} miles away)`;
       list.appendChild(li);
     });
   }
+  
   
   // ==== Theme ====
   
@@ -76,7 +79,13 @@ function getLocation() {
     if (savedTheme === "dark") {
       document.body.classList.add("dark");
     }
+  
+    const fuelTypeSelect = document.getElementById("fuel-type");
+    fuelTypeSelect.addEventListener("change", () => {
+      renderStations(mockGasStations);
+    });
   });
+  
   
   document.getElementById("theme-toggle").addEventListener("click", () => {
     document.body.classList.toggle("dark");

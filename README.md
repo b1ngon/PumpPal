@@ -8,10 +8,11 @@ PumpPal is a lightweight, browser-based web app that detects your location and d
 
 ## Features
 - Geoloccation using the browser's API
-- Dynamic rendering of gas station listing (mocked)
+- Dynamic rendering of gas station listing (mocked data)
+- Real-time fuel type filtering (Regular, Midgrade, Premium)
 - Error handling (denied permissions, unavailable location, etc.)
-- Clean, responsive UI with card-style layout
 - Detects user’s current location
+- Light/Dark theme toggle
 - Deployed with GitHub Pages
 - Displays coordinates
 - API-ready codebase for fuel pricing integration
@@ -50,7 +51,15 @@ PumpPal is a lightweight, browser-based web app that detects your location and d
 ## How to Run
 1. Clone the repo
 2. Open `index.html` in a browser
-3. Click the button to see your location
+3. Click the "Find My Location" button
+4. Select a fuel type from the dropdown
+
+---
+
+## What's New (April 2025)
+- Added dropdown menu for selecting fuel types (Regular, Midgrade, Premium)
+- Re-render nearby stations based on selected fuel type
+- Mock data enhanced with structured price categories
 
 ---
 
@@ -62,9 +71,8 @@ PumpPal is a lightweight, browser-based web app that detects your location and d
 ---
 
 ## Future Plans
-- Integrate real-time gas prices using public APIs
-- Add sort/filter controls (by price, distance)
+- Add sort/filter controls by price, distance
 - Responsive mobile-first redesign
-- Save user preferences (localStorage)
+- Save user preferences (fuel type) with localStorage
 
 > Built by Barry Ngon (https://github.com/b1ngon)
